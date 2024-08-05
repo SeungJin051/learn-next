@@ -1,13 +1,10 @@
+import Layout from "@/layout/Layout";
 import "@/styles/globals.css";
-import Link from "next/link";
 
 export default function App({ Component, pageProps }) {
   return (
-    <div>
-      <nav>
-        <Link href={"/"}>Home</Link> | <Link href={"/login"}>Login</Link>
-      </nav>
+    <Layout>
       <Component {...pageProps} />
-    </div>
+    </Layout>
   );
 }
