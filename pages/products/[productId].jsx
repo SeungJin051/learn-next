@@ -1,3 +1,4 @@
+import { fetchProductInfo } from '@/api';
 import ProductHeader from '@/components/ProductHeader';
 import axios from 'axios';
 import React from 'react';
@@ -18,8 +19,9 @@ export async function getServerSideProps(context) {
   // /products/100
   console.log(`## productId : `, context.params.productId);
   const id = context.params.productId;
-  const res = await axios.get(`http://localhost:4000/products/${id}`);
+  const res = await fetchProductInfo(id);
 
+  // const res = await axios.get(`http://localhost:4000/products/${id}`);
   return {
     props: {
       message: '서버에서 보내준 메세지',
