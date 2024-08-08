@@ -3,12 +3,12 @@ import CartsHeader from '@/components/cart/CartsHeader';
 import CartsList from '@/components/cart/CartsList';
 import React from 'react';
 
-export default function CartPage(carts) {
+export default function CartPage({ carts }) {
   console.log(carts);
   return (
     <div>
       <CartsHeader />
-      <CartsList />
+      <CartsList carts={carts} />
     </div>
   );
 }
