@@ -24,4 +24,15 @@ function createCartItem(id, name, price, imageUrl) {
   });
 }
 
-export { instance, fetchProducts, fetchProductInfo, createCartItem };
+// 장바구니 목록을 조회하는 API 함수
+function fetchCartItems() {
+  return instance.get('/carts');
+}
+
+export {
+  instance,
+  fetchProducts,
+  fetchProductInfo,
+  createCartItem,
+  fetchCartItems,
+};

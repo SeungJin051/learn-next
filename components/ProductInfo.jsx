@@ -10,7 +10,7 @@ export default function ProductInfo({ productDetail }) {
 
   const addCart = async () => {
     // 1. 장바구니에 담는 API 호출
-    const res = await createCartItem({ id, name, price, imageUrl });
+    const res = await createCartItem(productDetail);
     console.log(res);
     alert('장바구니에 추가됨!');
     // 2. 장바구니 페이지로 이동
