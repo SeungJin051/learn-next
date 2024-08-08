@@ -14,4 +14,12 @@ function fetchProductInfo(id) {
   return instance.get(`/products/${id}`);
 }
 
-export { instance, fetchProducts, fetchProductInfo };
+// 장바구니에 아이템을 추가하는 API함수
+function createCartItem(id, name) {
+  return instance.post('/carts', {
+    id: id,
+    name: name,
+  });
+}
+
+export { instance, fetchProducts, fetchProductInfo, createCartItem };
