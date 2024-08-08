@@ -4,9 +4,8 @@ import Image from 'next/image';
 import styles from './ProductList.module.css';
 import Link from 'next/link';
 import { fetchProducts } from '@/api';
-
 export default function ProductList() {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState(null);
 
   useEffect(() => {
     fetchProducts().then(res => {
