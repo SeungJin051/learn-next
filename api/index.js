@@ -15,10 +15,12 @@ function fetchProductInfo(id) {
 }
 
 // 장바구니에 아이템을 추가하는 API함수
-function createCartItem(id, name) {
+function createCartItem(id, name, price, imageUrl) {
   return instance.post('/carts', {
     id: id,
-    name: name,
+    name,
+    price,
+    imageUrl,
   });
 }
 
