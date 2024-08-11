@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './CartsList.module.css';
 import { removeCartItem } from '@/api';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 // map [1, 2, 3] -> [10, 20, 30] = 기존의 배열의 각각의 요소를 변화
 // reduce [1, 2, 3] -> 6 = 모두 더해서 각각의 값으로 뽑아줌
@@ -16,9 +17,11 @@ export default function CartsList({ carts }) {
 
   const removeCart = async id => {
     // 1. 삭제 API 호출
-    const res = await removeCartItem(id);
-    alert(`${res.data.name} 삭제가 되었습니다.`);
-
+    const { data } = await axios.post('http://localhost:3000/api/carts', {
+      id: id,
+    });
+    console.log(data);
+    alert(data);
     // 2. 상품 목록(배열) 갱신
     router.replace(router.asPath); // 이동은 하지만 흔적을 남기지 않겠다.
     // push -> 이동한다.
